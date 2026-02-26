@@ -185,7 +185,7 @@ function closeModal() {
 async function confirmUse() {
   const location = document.getElementById('modalUsageLocation').value.trim();
   if (!location) {
-    alert('Informe o local de uso');
+    showAlert('Informe o local de uso');
     return;
   }
 
@@ -198,6 +198,42 @@ async function confirmUse() {
   closeModal();
   loadStatus();
   loadAllAliases();
+}
+
+function showAlert(message, title = 'Aviso') {
+  document.getElementById('alertTitle').textContent = title;
+  document.getElementById('alertMessage').textContent = message;
+  document.getElementById('alertModal').style.display = 'flex';
+}
+
+function closeAlertModal() {
+  document.getElementById('alertModal').style.display = 'none';
+}
+
+function showConfirm(message, title = 'Confirmação', onConfirm, onCancel) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmMessage').textContent = message;
+  window.confirmCallback = onConfirm;
+  window.confirmCancelCallback = onCancel;
+  document.getElementById('confirmModal').style.display = 'flex';
+}
+
+function confirmModalConfirm() {
+  if (window.confirmCallback) {
+    window.confirmCallback();
+  }
+  document.getElementById('confirmModal').style.display = 'none';
+  window.confirmCallback = null;
+  window.confirmCancelCallback = null;
+}
+
+function confirmModalCancel() {
+  if (window.confirmCancelCallback) {
+    window.confirmCancelCallback();
+  }
+  document.getElementById('confirmModal').style.display = 'none';
+  window.confirmCallback = null;
+  window.confirmCancelCallback = null;
 }
 
 function openEditModal(id, alias, description) {
@@ -226,23 +262,25 @@ async function confirmEdit() {
 }
 
 async function deleteAlias(id, alias) {
-  if (!confirm(`Excluir ${alias}?`)) return;
-
-  await fetch(`${API_URL}/aliases/${id}`, { method: 'DELETE' });
-  loadStatus();
-  loadAllAliases();
+  showConfirm(`Excluir ${alias}?`, 'Excluir Alias', async () => {
+    await fetch(`${API_URL}/aliases/${id}`, { method: 'DELETE' });
+    loadStatus();
+    loadAllAliases();
+  });
 }
 
 async function clearUsedEmails() {
-  if (!confirm('Limpar emails utilizados?')) return;
-  await fetch(`${API_URL}/used-emails`, { method: 'DELETE' });
-  loadStatus();
+  showConfirm('Limpar emails utilizados?', 'Limpar Emails', async () => {
+    await fetch(`${API_URL}/used-emails`, { method: 'DELETE' });
+    loadStatus();
+  });
 }
 
 async function resetDailyUsage() {
-  if (!confirm('Resetar limite diário?')) return;
-  await fetch(`${API_URL}/daily-usage`, { method: 'DELETE' });
-  loadStatus();
+  showConfirm('Resetar limite diário?', 'Resetar Limite', async () => {
+    await fetch(`${API_URL}/daily-usage`, { method: 'DELETE' });
+    loadStatus();
+  });
 }
 
 

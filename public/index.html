@@ -103,6 +103,27 @@
     </div>
   </div>
 
+  <div id="confirmModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3 id="confirmTitle">Confirmação</h3>
+      <p id="confirmMessage"></p>
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="confirmModalConfirm()">Confirmar</button>
+        <button class="btn-secondary" onclick="confirmModalCancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3 id="alertTitle">Aviso</h3>
+      <p id="alertMessage"></p>
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="closeAlertModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
