@@ -201,9 +201,16 @@ async function confirmUse() {
 }
 
 function openAlertModal(message, title = 'Aviso') {
+  const modal = document.getElementById('alertModal');
   document.getElementById('alertTitle').textContent = title;
   document.getElementById('alertMessage').textContent = message;
-  document.getElementById('alertModal').style.display = 'flex';
+  modal.style.display = 'flex';
+  // Fechar modal ao clicar no fundo
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      closeAlertModal();
+    }
+  };
 }
 
 function closeAlertModal() {
@@ -211,10 +218,17 @@ function closeAlertModal() {
 }
 
 function openConfirmModal(title, message, action) {
+  const modal = document.getElementById('confirmModal');
   document.getElementById('confirmTitle').textContent = title;
   document.getElementById('confirmMessage').textContent = message;
   window.confirmAction = action;
-  document.getElementById('confirmModal').style.display = 'flex';
+  modal.style.display = 'flex';
+  // Fechar modal ao clicar no fundo
+  modal.onclick = function(e) {
+    if (e.target === modal) {
+      closeConfirmModal();
+    }
+  };
 }
 
 function closeConfirmModal() {
