@@ -256,23 +256,47 @@ async function confirmEdit() {
 
 async function deleteAlias(id, alias) {
   openConfirmModal('Excluir Alias', `Excluir ${alias}?`, async () => {
-    await fetch(`${API_URL}/aliases/${id}`, { method: 'DELETE' });
-    loadStatus();
-    loadAllAliases();
+    try {
+      const response = await fetch(`${API_URL}/aliases/${id}`, { method: 'DELETE' });
+      if (!response.ok) {
+        openAlertModal('Erro ao excluir alias');
+        return;
+      }
+      loadStatus();
+      loadAllAliases();
+    } catch (error) {
+      openAlertModal('Erro ao excluir alias');
+    }
   });
 }
 
 async function clearUsedEmails() {
   openConfirmModal('Limpar Emails', 'Limpar emails utilizados?', async () => {
-    await fetch(`${API_URL}/used-emails`, { method: 'DELETE' });
-    loadStatus();
+    try {
+      const response = await fetch(`${API_URL}/used-emails`, { method: 'DELETE' });
+      if (!response.ok) {
+        openAlertModal('Erro ao limpar emails');
+        return;
+      }
+      loadStatus();
+    } catch (error) {
+      openAlertModal('Erro ao limpar emails');
+    }
   });
 }
 
 async function resetDailyUsage() {
   openConfirmModal('Resetar Limite', 'Resetar limite diário?', async () => {
-    await fetch(`${API_URL}/daily-usage`, { method: 'DELETE' });
-    loadStatus();
+    try {
+      const response = await fetch(`${API_URL}/daily-usage`, { method: 'DELETE' });
+      if (!response.ok) {
+        openAlertModal('Erro ao resetar limite');
+        return;
+      }
+      loadStatus();
+    } catch (error) {
+      openAlertModal('Erro ao resetar limite');
+    }
   });
 }
 
