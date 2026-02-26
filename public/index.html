@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISITEAM - Gerenciador de Aliases</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SISITEAM</h1>
+      <p class="subtitle">Gerenciador de Aliases Outlook</p>
+    </header>
+
+    <div class="status-card">
+      <div class="card-header">
+        <h2>Status Diário</h2>
+        <button class="btn-reset" onclick="resetDailyUsage()" title="Resetar">↻</button>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-value" id="usedCount">0</span>
+          <span class="stat-label">Usados</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="limitCount">5</span>
+          <span class="stat-label">Limite</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="remainingCount">5</span>
+          <span class="stat-label">Restantes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="create-card">
+      <h2>Criar Novo Alias</h2>
+      <form id="createForm">
+        <div class="form-group">
+          <label>Projeto *</label>
+          <input type="text" id="project" placeholder="ex: financeiro" required>
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <input type="text" id="description" placeholder="ex: Faturas cliente ABC">
+        </div>
+        <div class="form-group">
+          <label>Validade (dias)</label>
+          <input type="number" id="validityDays" value="30" min="1" max="365">
+        </div>
+        <button type="submit" class="btn-primary">Gerar Alias</button>
+      </form>
+      <div id="createResult" class="result"></div>
+    </div>
+
+    <div class="aliases-card">
+      <h2>Aliases de Hoje</h2>
+      <div id="todayAliases"></div>
+    </div>
+
+    <div class="all-aliases-card">
+      <h2>Todos os Aliases</h2>
+      <div class="button-group">
+        <button class="btn-secondary" onclick="loadAllAliases()">Atualizar</button>
+        <button class="btn-export" onclick="exportExcel()">Excel</button>
+      </div>
+      <div id="allAliases"></div>
+    </div>
+
+    <div class="used-emails-card">
+      <div class="card-header">
+        <h2>Emails Utilizados</h2>
+        <button class="btn-reset" onclick="clearUsedEmails()" title="Limpar">🗑</button>
+      </div>
+      <div id="usedEmails"></div>
+    </div>
+  </div>
+
+  <div id="useModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Usar Alias</h3>
+      <p id="modalAlias"></p>
+      <input type="text" id="modalUsageLocation" placeholder="Onde está usando?">
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="confirmUse()">Confirmar</button>
+        <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Editar</h3>
+      <p id="editAlias"></p>
+      <input type="text" id="editDescription" placeholder="Nova descrição">
+      <div class="modal-buttons">
+        <button class="btn-primary" onclick="confirmEdit()">Salvar</button>
+        <button class="btn-secondary" onclick="closeEditModal()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

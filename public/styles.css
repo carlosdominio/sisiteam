@@ -1,0 +1,305 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.status-card, .create-card, .aliases-card, .all-aliases-card, .used-emails-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h2 {
+  margin-bottom: 0;
+}
+
+.btn-reset {
+  background: #ff6b6b;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.progress-container {
+  background: #e0e0e0;
+  border-radius: 10px;
+  height: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-primary, .btn-secondary, .btn-export, .btn-danger {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #555;
+  margin-right: 8px;
+}
+
+.btn-export {
+  background: #28a745;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  padding: 6px 10px;
+}
+
+.btn-small {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.result {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+.result.success {
+  display: block;
+  background: #d4edda;
+  color: #155724;
+}
+
+.result.error {
+  display: block;
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.alias-list {
+  list-style: none;
+}
+
+.alias-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alias-item:last-child {
+  border-bottom: none;
+}
+
+.alias-item.used {
+  background: #f0fff4;
+}
+
+.alias-info {
+  flex: 1;
+}
+
+.alias-email {
+  font-family: monospace;
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.alias-desc {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 3px;
+}
+
+.alias-meta {
+  color: #999;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+.alias-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.badge.active { background: #cce5ff; color: #004085; }
+.badge.used { background: #d4edda; color: #155724; }
+.badge.expired { background: #f8d7da; color: #721c24; }
+.badge.valid { background: #d4edda; color: #155724; }
+
+.email-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.email-tag {
+  padding: 5px 10px;
+  background: #e9ecef;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.empty {
+  color: #999;
+  text-align: center;
+  padding: 15px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 350px;
+  width: 90%;
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.modal-content p {
+  margin-bottom: 12px;
+  color: #666;
+  font-family: monospace;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
