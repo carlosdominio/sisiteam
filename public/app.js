@@ -78,6 +78,10 @@ function renderAliasItem(alias) {
     minute: '2-digit'
   }) : '-';
 
+  // Calcula cor para dias restantes
+  const daysLeftColor = daysLeft !== null ? (daysLeft > 0 ? 'green' : 'red') : 'gray';
+  const daysLeftText = daysLeft !== null ? `<span style="color: ${daysLeftColor}; font-weight: bold;">${daysLeft} dias restantes</span>` : '-';
+
   return `<li class="alias-item ${isUsed ? 'used' : ''}" ${colorStyle}>
     <div class="alias-info">
       <div class="alias-email">${escapeHtml(alias.alias)}</div>
@@ -86,6 +90,7 @@ function renderAliasItem(alias) {
         ${alias.used_at ? `Usado: ${escapeHtml(alias.usage_location || '-')}` : 'Pendente'}
         ${badge}
         <span class="validity-text">Validade: ${validityText}</span>
+        <span class="days-left">${daysLeftText}</span>
       </div>
     </div>
     <div class="alias-actions">
