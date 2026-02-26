@@ -240,6 +240,18 @@ input:focus {
 .badge.expired { background: #f8d7da; color: #721c24; }
 .badge.valid { background: #d4edda; color: #155724; }
 
+.days-left-badge {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.days-left-valid { background: #d4edda; color: #155724; }
+.days-left-expired { background: #f8d7da; color: #721c24; }
+.days-left-gray { background: #e9ecef; color: #495057; }
+
 .email-tags {
   display: flex;
   flex-wrap: wrap;

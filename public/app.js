@@ -79,8 +79,8 @@ function renderAliasItem(alias) {
   }) : '-';
 
   // Calcula cor para dias restantes
-  const daysLeftColor = daysLeft !== null ? (daysLeft > 0 ? 'green' : 'red') : 'gray';
-  const daysLeftText = daysLeft !== null ? `<span style="color: ${daysLeftColor}; font-weight: bold;">${daysLeft} dias restantes</span>` : '-';
+  const daysLeftClass = daysLeft !== null ? (daysLeft > 0 ? 'days-left-valid' : 'days-left-expired') : 'days-left-gray';
+  const daysLeftText = daysLeft !== null ? `<span class="days-left-badge ${daysLeftClass}">${daysLeft} dias restantes</span>` : '-';
 
   return `<li class="alias-item ${isUsed ? 'used' : ''}" ${colorStyle}>
     <div class="alias-info">
