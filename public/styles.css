@@ -195,7 +195,8 @@ input:focus {
 }
 
 .alias-item.used {
-  background: #f0fff4;
+  background: #fff3f3;
+  border-left: 4px solid #dc3545;
 }
 
 .alias-info {
