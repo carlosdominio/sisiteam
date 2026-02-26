@@ -180,43 +180,7 @@ app.delete('/api/daily-usage', (req, res) => {
   res.json({ success: true, message: 'Limite resetado' });
 });
 
-app.get('/api/export/excel', (req, res) => {
-  const allAliases = getAllAliases();
-  
-  const headers = ['Alias', 'Descrição', 'Data de Criação', 'Validade', 'Status', 'Local de Uso'];
-  
-  const rows = allAliases.map(alias => {
-    const createdDate = new Date(alias.created_at).toLocaleDateString('pt-BR');
-    const validityDate = alias.validity_datetime 
-      ? new Date(alias.validity_datetime).toLocaleString('pt-BR', { 
-          day: '2-digit', 
-          month: '2-digit', 
-          year: 'numeric', 
-          hour: '2-digit', 
-          minute: '2-digit'
-        }) 
-      : '-';
-    
-    let status = 'Ativo';
-    if (alias.used) status = 'Usado';
-    else if (alias.validity_datetime && new Date(alias.validity_datetime) < new Date()) status = 'Expirado';
-    
-    return [
-      alias.alias,
-      alias.description || '',
-      createdDate,
-      validityDate,
-      status,
-      alias.usage_location || '-'
-    ];
-  });
-  
-  const wb = XLSX.utils.book_new();
-  const ws = XLSX.utils.aoa_to_sheet([headers, ...rows]);
-  XLSX.utils.book_append_sheet(wb, ws, 'Aliases');
-  XLSX.writeFile(wb, 'aliases_export.xlsx');
-  res.download('aliases_export.xlsx');
-});
+
 
 app.listen(PORT, () => {
   console.log(`SISITEAM rodando em http://localhost:${PORT}`);

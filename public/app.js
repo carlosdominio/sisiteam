@@ -245,9 +245,7 @@ async function resetDailyUsage() {
   loadStatus();
 }
 
-function exportExcel() {
-  window.location.href = `${API_URL}/export/excel`;
-}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   loadStatus();
