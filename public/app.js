@@ -94,9 +94,9 @@ function renderAliasItem(alias) {
       </div>
     </div>
     <div class="alias-actions">
-      ${!isUsed ? `<button class="btn-primary btn-small" onclick="openUseModal(${alias.id}, '${safeAlias}')">Usar</button>` : ''}
-      <button class="btn-secondary btn-small" onclick="openEditModal(${alias.id}, '${safeAlias}', '${safeDesc}')">✏</button>
-      <button class="btn-danger btn-small" onclick="deleteAlias(${alias.id}, '${safeAlias}')">🗑</button>
+      ${!isUsed ? `<button class="btn-primary btn-small" onclick="openUseModal(${alias.id}, '${safeAlias}')">📧 Usar</button>` : ''}
+      <button class="btn-secondary btn-small" onclick="openEditModal(${alias.id}, '${safeAlias}', '${safeDesc}')">✏️ Editar</button>
+      <button class="btn-danger btn-small" onclick="deleteAlias(${alias.id}, '${safeAlias}')">🗑️ Excluir</button>
       ${status}
     </div>
   </li>`;

@@ -13,10 +13,10 @@
       <p class="subtitle">Gerenciador de Aliases Outlook</p>
     </header>
 
-    <div class="status-card">
+     <div class="status-card">
       <div class="card-header">
         <h2>Status Diário</h2>
-        <button class="btn-reset" onclick="resetDailyUsage()" title="Resetar">↻</button>
+        <button class="btn-reset" onclick="resetDailyUsage()" title="Resetar">🔄</button>
       </div>
       <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -52,7 +52,7 @@
           <label>Validade (dias)</label>
           <input type="number" id="validityDays" value="3" min="1" max="365">
         </div>
-        <button type="submit" class="btn-primary">Gerar Alias</button>
+        <button type="submit" class="btn-primary">✨ Gerar Alias</button>
       </form>
       <div id="createResult" class="result"></div>
     </div>
@@ -65,15 +65,15 @@
     <div class="all-aliases-card">
       <h2>Todos os Aliases</h2>
       <div class="button-group">
-        <button class="btn-secondary" onclick="loadAllAliases()">Atualizar</button>
+        <button class="btn-secondary" onclick="loadAllAliases()">🔄 Atualizar</button>
       </div>
       <div id="allAliases"></div>
     </div>
 
     <div class="used-emails-card">
-      <div class="card-header">
+       <div class="card-header">
         <h2>Emails Utilizados</h2>
-        <button class="btn-reset" onclick="clearUsedEmails()" title="Limpar">🗑</button>
+        <button class="btn-reset" onclick="clearUsedEmails()" title="Limpar">🗑️ Limpar</button>
       </div>
       <div id="usedEmails"></div>
     </div>
@@ -85,8 +85,8 @@
       <p id="modalAlias"></p>
       <input type="text" id="modalUsageLocation" placeholder="Onde está usando?">
       <div class="modal-buttons">
-        <button class="btn-primary" onclick="confirmUse()">Confirmar</button>
-        <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
+        <button class="btn-primary" onclick="confirmUse()">✅ Confirmar</button>
+        <button class="btn-secondary" onclick="closeModal()">❌ Cancelar</button>
       </div>
     </div>
   </div>
@@ -97,8 +97,8 @@
       <p id="editAlias"></p>
       <input type="text" id="editDescription" placeholder="Nova descrição">
       <div class="modal-buttons">
-        <button class="btn-primary" onclick="confirmEdit()">Salvar</button>
-        <button class="btn-secondary" onclick="closeEditModal()">Cancelar</button>
+        <button class="btn-primary" onclick="confirmEdit()">💾 Salvar</button>
+        <button class="btn-secondary" onclick="closeEditModal()">❌ Cancelar</button>
       </div>
     </div>
   </div>
@@ -108,8 +108,8 @@
       <h3 id="confirmTitle">Confirmação</h3>
       <p id="confirmMessage"></p>
       <div class="modal-buttons">
-        <button class="btn-primary" onclick="confirmModalConfirm()">Confirmar</button>
-        <button class="btn-secondary" onclick="confirmModalCancel()">Cancelar</button>
+        <button class="btn-primary" onclick="confirmModalConfirm()">✅ Confirmar</button>
+        <button class="btn-secondary" onclick="confirmModalCancel()">❌ Cancelar</button>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
       <h3 id="alertTitle">Aviso</h3>
       <p id="alertMessage"></p>
       <div class="modal-buttons">
-        <button class="btn-primary" onclick="closeAlertModal()">OK</button>
+        <button class="btn-primary" onclick="closeAlertModal()">✅ OK</button>
       </div>
     </div>
   </div>
