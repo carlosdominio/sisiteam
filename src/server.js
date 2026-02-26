@@ -188,7 +188,13 @@ app.get('/api/export/excel', (req, res) => {
   const rows = allAliases.map(alias => {
     const createdDate = new Date(alias.created_at).toLocaleDateString('pt-BR');
     const validityDate = alias.validity_datetime 
-      ? new Date(alias.validity_datetime).toLocaleDateString('pt-BR') 
+      ? new Date(alias.validity_datetime).toLocaleString('pt-BR', { 
+          day: '2-digit', 
+          month: '2-digit', 
+          year: 'numeric', 
+          hour: '2-digit', 
+          minute: '2-digit'
+        }) 
       : '-';
     
     let status = 'Ativo';

@@ -69,6 +69,15 @@ function renderAliasItem(alias) {
 
   const colorStyle = alias.color ? `style="border-left: 4px solid ${alias.color}"` : '';
 
+  // Formatar data de validade com hora (dd/mm/yyyy hh:mm)
+  const validityText = validDate ? validDate.toLocaleString('pt-BR', { 
+    day: '2-digit', 
+    month: '2-digit', 
+    year: 'numeric', 
+    hour: '2-digit', 
+    minute: '2-digit'
+  }) : '-';
+
   return `<li class="alias-item ${isUsed ? 'used' : ''}" ${colorStyle}>
     <div class="alias-info">
       <div class="alias-email">${escapeHtml(alias.alias)}</div>
@@ -76,6 +85,7 @@ function renderAliasItem(alias) {
       <div class="alias-meta">
         ${alias.used_at ? `Usado: ${escapeHtml(alias.usage_location || '-')}` : 'Pendente'}
         ${badge}
+        <span class="validity-text">Validade: ${validityText}</span>
       </div>
     </div>
     <div class="alias-actions">
