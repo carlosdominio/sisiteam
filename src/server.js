@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3000;
 const DAILY_LIMIT = parseInt(process.env.DAILY_LIMIT) || 5;
 const PRIMARY_EMAIL = process.env.PRIMARY_EMAIL || 'usuario@outlook.com';
 const ALIAS_DOMAIN = process.env.ALIAS_DOMAIN || 'outlook.com';
-const DEFAULT_VALIDITY_DAYS = parseInt(process.env.DEFAULT_VALIDITY_DAYS) || 30;
+const DEFAULT_VALIDITY_DAYS = parseInt(process.env.DEFAULT_VALIDITY_DAYS) || 3;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));

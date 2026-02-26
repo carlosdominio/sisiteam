@@ -136,7 +136,7 @@ document.getElementById('createForm').addEventListener('submit', async (e) => {
 
   const project = document.getElementById('project').value.trim();
   const description = document.getElementById('description').value.trim();
-  const validityDays = parseInt(document.getElementById('validityDays').value) || 30;
+  const validityDays = parseInt(document.getElementById('validityDays').value) || 3;
   const resultDiv = document.getElementById('createResult');
 
   if (!project) {
